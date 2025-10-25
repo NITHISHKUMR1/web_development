@@ -1,0 +1,18 @@
+<h1 id="h1"></h1>
+<button onclick="update(event)">nithish</button>
+<button onclick="at(event)">ganesh</button>
+<button onclick="sasi(event)">sasikala</button>
+<script>
+    var ht=document.getElementById("h1")
+    function update(event){
+        h1.textContent=event.target.textContent
+
+    }
+    function at(event){
+        h1.textContent=event.target.textContent
+    }
+    function sasi(event){
+        h1.textContent=event.target.textContent
+    }
+
+</script>
