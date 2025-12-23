@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo LISTS</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1 id="text">Todo list </h1>
+        <section>
+            <h1>My lists</h1>
+            <ul id="list">
+                <li>chicken ricw</li>
+                <li>egg rice</li>
+                <li>veg rice</li>
+                <li>chapathi</li>
+                <li>poori</li>
+            </ul>
+            <div id="button">
+                <button onclick="update()" >click me</button>
+                <button onclick="deletes()" >Delete</button>
+
+            </div>
+
+            <footer>
+                <h2>click the button to update the list</h2>
+            </footer>
+        </section>
+
+
+    </div>
+
+
+    <script>
+        const list = document.querySelector("#list")
+
+        update = () => {
+            const items = prompt("enetr the update list")
+
+            if (items != null) {
+                const newlist = document.createElement("li")
+                newlist.textContent = items
+                list.appendChild(newlist)
+            }
+
+        }
+
+        const deletes = () => {
+            list.children.length === 0 ? alert("no items are avaliable") : list.removeChild(list.lastElementChild)
+        }
+    </script>
+</body>
+
+</html>
