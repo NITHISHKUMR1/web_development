@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather-app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="Home-page">
+            <nav>
+                <h1>Weather</h1>
+
+                <ul class="Nav-list">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Service</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="View-1">
+            <h1 style="padding:50px 50px ;margin-left:25%;color:rgb(229, 223, 223);font-size:35px;">Weather </h1>
+            <div class="search">
+                <input type="text" placeholder="Enter the weather" class="search-input">
+                <button class="button">Search</button>
+            </div>
+            <div class="Wheather-view">
+                <div class="place">
+                    <h1>City</h1>
+                </div>
+                <div class="temp">
+                    <h1>35"C</h1>
+                </div>
+                <div class="wind">
+                    <h1>25 Wind</h1>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+    </main>
+
+    <script>
+        /*const searchbox = document.getElementsByClassName("search-input")
+        const btn = document.getElementsByClassName("button")
+
+
+        /* const api key="25a16915818c6ea7c4246df1e422e8e0"
+         const api url="https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}"
+
+        const gets = async (city) => {
+            const data = await fetch("https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}")
+            const respose = await data.json();
+            console.log(respose);
+            //const document.getElementsByClassName("View-1"
+            //const  document.getElementsByClassName("Wheather-view").innerHTML=respose.name
+            const  document.getElementsByClassName("place").innerHTML=respose.name
+            const document.getElementsByClassName("temp").innerHTML=respose.main.temp
+            const document.getElementsByClassName("wind").innerHTML=respose.wind
+
+
+        }
+        btn.addEventListener("click", () => {
+            gets(searchbox.value)
+        })*/
+
+        const searchbox = document.querySelector(".search-input");
+        const btn = document.querySelector(".button");
+
+        const apiKey = "25a16915818c6ea7c4246df1e422e8e0";
+
+        const gets = async (city) => {
+            const data = await fetch(
+                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+            );
+
+            const response = await data.json();
+            console.log(response);
+
+            document.querySelector(".place").innerHTML =
+                `<h1>${response.name}</h1>`;
+
+            document.querySelector(".temp").innerHTML =
+                `<h1>${Math.round(response.main.temp - 273.15)}°C</h1>`;
+
+            document.querySelector(".wind").innerHTML =
+                `<h1>${response.wind.speed} Wind</h1>`;
+        };
+
+        btn.addEventListener("click", () => {
+            gets(searchbox.value);
+        });
+
+
+
+    </script>
+</body>
+
+</html>
